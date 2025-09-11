@@ -1,0 +1,69 @@
+{
+	"name": "storepress/marquee-block",
+	"description": "Marquee Block",
+	"minimum-stability": "stable",
+	"license": "GPL-2.0-or-later",
+	"type": "wordpress-plugin",
+	"keywords": [
+		"gutenberg",
+		"wordpress",
+		"storepress",
+		"plugin"
+	],
+	"homepage": "https://github.com/EmranAhmed/marquee-block#readme",
+	"authors": [
+		{
+			"name": "EmranAhmed",
+			"email": "emran.bd.08@gmail.com"
+		},
+		{
+			"name": "StorePress",
+			"email": "storepresshq@gmail.com"
+		}
+	],
+	"require": {
+		"automattic/jetpack-autoloader": "^v5.0.5"
+	},
+	"require-dev": {
+		"automattic/vipwpcs": "^3.0.1",
+		"phpcompatibility/phpcompatibility-wp": "^2.1.6",
+		"phpstan/extension-installer": "^1.4.3",
+		"phpstan/phpstan": "^2.1",
+		"phpstan/phpstan-strict-rules": "^2.0.3",
+		"szepeviktor/phpstan-wordpress": "^v2.0.1",
+		"woocommerce/woocommerce-sniffs": "^1.0.0",
+		"wp-cli/i18n-command": "^v2.6.3",
+		"wp-coding-standards/wpcs": "^3.1.0",
+		"plugin-check/phpcs-sniffs": "@dev"
+	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": "./wp-plugin-check",
+			"options": {
+				"symlink": true
+			}
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"StorePress\\MarqueeBlock\\": "includes/"
+		}
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"sort-packages": true,
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"automattic/jetpack-autoloader": true,
+			"phpstan/extension-installer": true
+		}
+	},
+	"scripts": {
+		"format": "./vendor/bin/phpcbf --standard=phpcs.xml",
+		"lint": "./vendor/bin/phpcs --standard=phpcs.xml --report-summary --report-source",
+		"lint:report": "./vendor/bin/phpcs --standard=phpcs.xml --report-summary --report-source --ignore-annotations --report-full=phpcs-report.txt",
+		"phpstan": "./vendor/bin/phpstan --memory-limit=2G",
+		"phpstan-report": "./vendor/bin/phpstan --memory-limit=2G -vvv > phpstan-report.txt"
+	}
+}

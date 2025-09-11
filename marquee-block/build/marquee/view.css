@@ -1,0 +1,109 @@
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/marquee/view.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+.wp-block-storepress-marquee {
+  --animation-direction: normal;
+  --content-gap: 40px;
+  --animation-speed: 10s;
+  --overlay-color: transparent;
+  --white-space: wrap;
+  --animation-play-state: paused;
+  --animation-name: storepress-marquee-animation-x;
+  --_animation-transform: calc(-100% - var(--content-gap));
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--content-gap);
+  overflow: clip;
+}
+.wp-block-storepress-marquee:hover > .wp-block-storepress-marquee__item {
+  animation-play-state: var(--animation-play-state);
+}
+.wp-block-storepress-marquee > .wp-block-storepress-marquee__item {
+  flex: 1 0 100%;
+  animation: var(--animation-name) var(--animation-speed) linear infinite;
+  animation-direction: var(--animation-direction);
+}
+@media (prefers-reduced-motion: reduce) {
+  .wp-block-storepress-marquee > .wp-block-storepress-marquee__item {
+    animation: none !important;
+  }
+  .wp-block-storepress-marquee > .wp-block-storepress-marquee__item.mirror {
+    display: none;
+  }
+}
+.wp-block-storepress-marquee.orientation-x {
+  flex-direction: row;
+}
+.wp-block-storepress-marquee.orientation-x > .wp-block-storepress-marquee__item > *:not(.wp-block-group) {
+  white-space: var(--white-space);
+}
+.wp-block-storepress-marquee.orientation-x > .wp-block-storepress-marquee__item > * > * {
+  white-space: var(--white-space);
+}
+.wp-block-storepress-marquee.orientation-y {
+  flex-direction: column;
+  /*& > .wp-block-storepress-marquee__item {
+  	!*animation-delay: -3s;*!
+  	white-space: var(--white-space);
+  }*/
+}
+.wp-block-storepress-marquee.orientation-y > .wp-block-storepress-marquee__item > *:not(.wp-block-group) {
+  white-space: var(--white-space);
+}
+.wp-block-storepress-marquee.orientation-y > .wp-block-storepress-marquee__item > * > * {
+  white-space: var(--white-space);
+}
+.wp-block-storepress-marquee.has-overlay-color {
+  isolation: isolate;
+}
+.wp-block-storepress-marquee.has-overlay-color::before, .wp-block-storepress-marquee.has-overlay-color::after {
+  pointer-events: none;
+  position: absolute;
+  content: "";
+  z-index: 1;
+  inset: 0;
+}
+.wp-block-storepress-marquee.has-overlay-color.orientation-x::before, .wp-block-storepress-marquee.has-overlay-color.orientation-x::after {
+  width: 10%;
+  height: 100%;
+}
+.wp-block-storepress-marquee.has-overlay-color.orientation-x::before {
+  background: linear-gradient(270deg, transparent 0%, var(--overlay-color) 100%);
+  margin-inline: 0 auto;
+}
+.wp-block-storepress-marquee.has-overlay-color.orientation-x::after {
+  background: linear-gradient(90deg, transparent 0%, var(--overlay-color) 100%);
+  margin-inline: auto 0;
+}
+.wp-block-storepress-marquee.has-overlay-color.orientation-y::before, .wp-block-storepress-marquee.has-overlay-color.orientation-y::after {
+  width: 100%;
+  height: 10%;
+}
+.wp-block-storepress-marquee.has-overlay-color.orientation-y::before {
+  background: linear-gradient(0deg, transparent 0%, var(--overlay-color) 100%);
+  margin-block: 0 auto;
+}
+.wp-block-storepress-marquee.has-overlay-color.orientation-y::after {
+  background: linear-gradient(180deg, transparent 0%, var(--overlay-color) 100%);
+  margin-block: auto 0;
+}
+
+@keyframes storepress-marquee-animation-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--_animation-transform));
+  }
+}
+@keyframes storepress-marquee-animation-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(var(--_animation-transform));
+  }
+}
+
+/*# sourceMappingURL=view.css.map*/
